@@ -7,17 +7,23 @@ const //shape = ;
 const questions = [
     {
         type:'list',
-        name:'',
-        message:'',
+        name:'forma',
+        message:'pick the shape you would like',
+        choices: ["triangle", "circle", "square"]
     },
     {
-        type:'',
-        name:'',
-        message:'',
+        type:'input',
+        name:'formaColor',
+        message:'what color would you like? (hex number or color name)',
     },
     {
-        type:'',
-        name:'',
-        message:'',
+        type:'input',
+        name:'letra',
+        message:'Please chose ONLY 3 letters',
     },
+    {
+        type:'input',
+        name:'letraColor',
+        message:'what color do you want your letters',
+    },    
 ];    
