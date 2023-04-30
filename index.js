@@ -1,6 +1,6 @@
 const fs = require('fs');
 const inquirer= require('inquirer') ;
-const //shape = ;
+const formas = require('./lib/shapes');
 
 
 //questions 
@@ -27,3 +27,24 @@ const questions = [
         message:'what color do you want your letters',
     },    
 ];    
+ 
+// fs to make svg file
+function writeToFile(data) { 
+    fs.writeFile("coollogo.svg", data, function (err) {
+        if (err) throw err;
+        console.info("Awesome logo.svg created");
+    } 
+)};
+
+// function for init
+function init() {
+    inquirer.prompt(questions)
+    .then((data) => {
+        const forma = createforma(data);
+        const logo = forma.generateforma();
+        writeToFile(logo);
+    })
+}
+
+//initialize
+init();
