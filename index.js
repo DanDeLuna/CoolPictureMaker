@@ -27,7 +27,16 @@ const questions = [
         message:'what color do you want your letters',
     },    
 ];    
- 
+ // function to create shape based on user input
+function createforma(data) {
+    if (data.shape == "circle") {
+        return new formas.Circle(data.letra, data.letraColor, data.formaColor);
+    } else if (data.forma == "triangle") {
+        return new formas.Triangle(data.letra, data.letraColor, data.formaColor);
+    } else if (data.forma == "square") {
+        return new formas.Square(data.letra, data.letraColor, data.formaColor);
+    }
+};
 // fs to make svg file
 function writeToFile(data) { 
     fs.writeFile("coollogo.svg", data, function (err) {
@@ -40,8 +49,8 @@ function writeToFile(data) {
 function init() {
     inquirer.prompt(questions)
     .then((data) => {
-        const forma = createforma(data);
-        const logo = forma.generateforma();
+        const formaa = createforma(data);
+        const logo = formaa.generateforma();
         writeToFile(logo);
     })
 }
